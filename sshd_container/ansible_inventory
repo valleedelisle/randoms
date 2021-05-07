@@ -1,0 +1,22 @@
+[ansible_containers]
+rootless_ssh10 ansible_user=admin ansible_connection=ssh ansible_port=33010 ansible_host=127.0.0.1
+rootless_ssh11 ansible_user=admin ansible_connection=ssh ansible_port=33011 ansible_host=127.0.0.1
+rootless_ssh12 ansible_user=admin ansible_connection=ssh ansible_port=33012 ansible_host=127.0.0.1
+rootless_ssh13 ansible_user=admin ansible_connection=ssh ansible_port=33013 ansible_host=127.0.0.1
+rootless_ssh14 ansible_user=admin ansible_connection=ssh ansible_port=33014 ansible_host=127.0.0.1
+rootless_ssh15 ansible_user=admin ansible_connection=ssh ansible_port=33015 ansible_host=127.0.0.1
+rootless_ssh16 ansible_user=admin ansible_connection=ssh ansible_port=33016 ansible_host=127.0.0.1
+rootless_ssh17 ansible_user=admin ansible_connection=ssh ansible_port=33017 ansible_host=127.0.0.1
+rootless_ssh18 ansible_user=admin ansible_connection=ssh ansible_port=33018 ansible_host=127.0.0.1
+rootless_ssh19 ansible_user=admin ansible_connection=ssh ansible_port=33019 ansible_host=127.0.0.1
+rootless_ssh20 ansible_user=admin ansible_connection=ssh ansible_port=33020 ansible_host=127.0.0.1
+rootless_ssh21 ansible_user=admin ansible_connection=ssh ansible_port=33021 ansible_host=127.0.0.1
+rootless_ssh22 ansible_user=admin ansible_connection=ssh ansible_port=33022 ansible_host=127.0.0.1
+rootless_ssh23 ansible_user=admin ansible_connection=ssh ansible_port=33023 ansible_host=127.0.0.1
+rootless_ssh24 ansible_user=admin ansible_connection=ssh ansible_port=33024 ansible_host=127.0.0.1
+rootless_ssh25 ansible_user=admin ansible_connection=ssh ansible_port=33025 ansible_host=127.0.0.1
+rootless_ssh26 ansible_user=admin ansible_connection=ssh ansible_port=33026 ansible_host=127.0.0.1
+rootless_ssh27 ansible_user=admin ansible_connection=ssh ansible_port=33027 ansible_host=127.0.0.1
+rootless_ssh28 ansible_user=admin ansible_connection=ssh ansible_port=33028 ansible_host=127.0.0.1
+rootless_ssh29 ansible_user=admin ansible_connection=ssh ansible_port=33029 ansible_host=127.0.0.1
+rootless_ssh30 ansible_user=admin ansible_connection=ssh ansible_port=33030 ansible_host=127.0.0.1
