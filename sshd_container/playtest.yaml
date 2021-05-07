@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  serial: 10
+  serial: 1
   vars:
     delegated_host: rootless_ssh30
     tripleo_kernel_tsx_state_file: /root/state_file
@@ -29,6 +29,7 @@
         - name: Pause for 2 minutes
           pause:
             minutes: 2
+
         - name: Marking state as ready for further tasks
           copy:
             content: "ready"
@@ -45,3 +46,9 @@
     - name: Showing facts set
       debug:
         var: me
+
+    - name: Fail if no facts
+      fail:
+        msg: "{{ me }} != {{ inventory_hostname }}"
+      when:
+        - me != inventory_hostname
