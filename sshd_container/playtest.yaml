@@ -1,0 +1,54 @@
+---
+- hosts: all
+  serial: 1
+  vars:
+    delegated_host: rootless_ssh30
+    tripleo_kernel_tsx_state_file: /root/state_file
+  tasks:
+    - name: Clear gathered facts from all currently targeted hosts
+      meta: clear_facts
+    - name: Pre-run validation
+      when:
+        - inventory_hostname == ansible_play_hosts_all[0]
+      block:
+        - name: Removing state file
+          file:
+            path: "{{ tripleo_kernel_tsx_state_file }}"
+            state: absent
+          delegate_to: "{{ delegated_host }}"
+    
+        - name: Getting all other nodes' TSX facts
+          set_fact:
+            me: '{{ compute_node }}'
+          delegate_to: '{{ compute_node }}'
+          delegate_facts: true
+          loop: "{{ ansible_play_hosts_all }}"
+          loop_control:
+            loop_var: compute_node
+    
+        - name: Pause for 2 minutes
+          pause:
+            minutes: 2
+
+        - name: Marking state as ready for further tasks
+          copy:
+            content: "ready"
+            dest: "{{ tripleo_kernel_tsx_state_file }}"
+          delegate_to: "{{ delegated_host }}"
+    
+    - name: Wait until we computed the facts from all the nodes
+      wait_for:
+        path: "{{ tripleo_kernel_tsx_state_file }}"
+        search_regex: "ready"
+        state: present
+      delegate_to: "{{ delegated_host }}"
+
+    - name: Showing facts set
+      debug:
+        var: me
+
+    - name: Fail if no facts
+      fail:
+        msg: "{{ me }} != {{ inventory_hostname }}"
+      when:
+        - me != inventory_hostname
